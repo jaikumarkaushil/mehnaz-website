@@ -1,9 +1,13 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
+// Determine the base path based on the environment
+const base = process.env.NODE_ENV === "production" ? "/mehnaz/" : "/";
+
 export default defineConfig({
   plugins: [react()],
+  base: base,
   build: {
-    outDir: "dist", // Set the desired output directory name
+    assetsDir: "assets",
   },
 });
