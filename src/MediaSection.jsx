@@ -9,9 +9,9 @@ const MediaSection = () => {
     <>
       <Container className="media-section">
         <Row>
-          <Col lg={6}>
+          <Col lg={5}>
             <Row>
-              <Col>
+              <Col className="media-intro-section">
                 <h1>Unlock your potential</h1>
                 <p>
                   Here are some amazing resources I’ve created for you, in order
@@ -30,39 +30,53 @@ const MediaSection = () => {
               </Col>
             </Row>
           </Col>
-          <Col lg={6}>
+          <Col lg={7}>
             <Row className="podcast-blog-section">
               <Col xl={6}>
-                <h3>latest podcast</h3>
-                <img src={podcastImg}></img>
-                <h5> What I learned from starting my own business</h5>
-                <p>
-                  Quisque elementum suscipit arcu ac blandit. Vestibulum orci
-                  ex, vestibulum eget vestibulum eget rhoncus sit amet, cursus.
-                </p>
-                <button>listen now</button>
+                <div className="podcast-section">
+                  <img src={podcastImg}></img>
+                  <div className="podcast-blog-content">
+                    <h3>latest podcast</h3>
+                    <h5> What I learned from starting my own business</h5>
+                    <p>
+                      Quisque elementum suscipit arcu ac blandit. Vestibulum
+                      orci ex, vestibulum eget vestibulum eget rhoncus sit amet,
+                      cursus.
+                    </p>
+                    <button>listen now</button>
+                  </div>
+                </div>
               </Col>
               <Col xl={6}>
-                <h3>latest blog</h3>
-                <img src={blogImg}></img>
-                <h5> 10 ways to boost your online presence</h5>
-                <p>
-                  Quisque elementum suscipit arcu ac blandit. Vestibulum orci
-                  ex, vestibulum eget vestibulum eget rhoncus sit amet, cursus
-                  quis velit [...]
-                </p>
-                <button>read now</button>
+                <div className="blog-section">
+                  <img src={blogImg}></img>
+                  <div className="podcast-blog-content">
+                    <h3>latest blog</h3>
+
+                    <h5> 10 ways to boost your online presence</h5>
+                    <p>
+                      Quisque elementum suscipit arcu ac blandit. Vestibulum
+                      orci ex, vestibulum eget vestibulum eget rhoncus sit amet,
+                      cursus quis velit.
+                    </p>
+                    <button>read now</button>
+                  </div>
+                </div>
               </Col>
             </Row>
             <Row>
-              <Col>
+              <Col className="highlight-section">
                 <img src={mediaHighlightImg}></img>
               </Col>
             </Row>
             <Row>
-              <Col>
+              <Col className="newsletter-section">
                 <h2>Stay tuned</h2>
-                <h4> My course on starting your dream business is coming.</h4>
+                <h5>
+                  My course on starting
+                  <span className="green-highlight"> your dream business </span>
+                  is coming.
+                </h5>
                 <p>
                   Sed ut dolor lacinia felis rhoncus faucibus. Pellentesque
                   malesuada nunc mollis neque maximus, vitae fermentum elit
