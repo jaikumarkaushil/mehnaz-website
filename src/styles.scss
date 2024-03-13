@@ -1,26 +1,9 @@
-// COLORS
-$green: #2f7661;
-$teal: #003a47;
-$pink: #eaa7a6;
-$orange: #ec5929;
-$beige: #f2ebe3;
-$yellow: #e9a130;
-$black: #222222;
-$bg-lightbeige: #f9f7f5;
-$bg-darkbeige: #f2ebe3;
-
-// FONTS
-$afacad: "Afacad", sans-serif;
-$poppins: "Poppins", sans-serif;
-$literata: "Literata", serif;
-$playfair: "Playfair Display", serif;
-$handwriting: "Oooh Baby", cursive;
-$lato: "Lato", sans-serif;
+@use "./theme.module.scss" as customTheme;
 
 body {
   background-color: white;
   font-size: 16px;
-  color: $black;
+  color: customTheme.$black;
 }
 
 // HELPERS
@@ -29,12 +12,73 @@ body {
 }
 
 .handwriting {
-  font-family: $handwriting;
+  font-family: customTheme.$handwriting;
+}
+
+// CUSTOM DESIGNS
+.btn-primary {
+  color: customTheme.$white !important;
+  background-color: customTheme.$green !important;
+  padding: 5px 25px;
+  outline: none;
+  border: 0px;
+  border-radius: 10px;
+  vertical-align: -webkit-baseline-middle;
+  &:hover,
+  &:focus {
+    background-color: customTheme.$teal !important;
+  }
+}
+.btn-secondary {
+  color: customTheme.$white !important;
+  background-color: customTheme.$orange !important;
+  padding: 5px 30px;
+  outline: none;
+  border: 0px;
+  border-radius: 10px;
+  vertical-align: -webkit-baseline-middle;
+  &:hover,
+  &:focus {
+    background-color: customTheme.$pink !important;
+    color: customTheme.$black !important;
+  }
+}
+
+.btn-tertiary {
+  color: customTheme.$white !important;
+  background-color: customTheme.$teal !important;
+  padding: 5px 30px;
+  outline: none;
+  border: 0px;
+  border-radius: 10px;
+  vertical-align: -webkit-baseline-middle;
+  &:hover,
+  &:focus {
+    background-color: customTheme.$orange !important;
+  }
+}
+
+//BACKGROUNDS
+.bg-lightbeige {
+  background-color: customTheme.$bg-lightbeige;
+}
+.bg-darkbeige {
+  background-color: customTheme.$bg-darkbeige;
+}
+.bg-green {
+  background-color: customTheme.$green;
+}
+.bg-teal {
+  background-color: customTheme.$teal;
+}
+
+.text-secondary {
+  color: customTheme.$orange !important;
 }
 
 // NAVBAR
 .nav-top {
-  background-color: $teal;
+  background-color: customTheme.$teal;
   color: white;
 }
 
@@ -74,14 +118,14 @@ body {
     padding-bottom: 30px;
     h3 {
       font-size: clamp(1.8rem, 0.5769rem + 2.5641vw, 2.3rem);
-      font-family: $poppins;
+      font-family: customTheme.$poppins;
       font-weight: 200;
     }
 
     h1 {
       font-size: clamp(3rem, -0.2308rem + 8.9744vw, 6.5rem);
       text-align: center;
-      font-family: $playfair;
+      font-family: customTheme.$playfair;
       font-weight: 800;
       font-style: normal;
     }
@@ -91,13 +135,13 @@ body {
 // ABOUT
 .about {
   h3 {
-    font-family: $literata;
+    font-family: customTheme.$literata;
     font-size: 2em;
   }
   h5 {
-    color: $pink;
+    color: customTheme.$pink;
     font-size: 1.5em;
-    font-family: $afacad;
+    font-family: customTheme.$afacad;
   }
 
   .row {
@@ -123,7 +167,7 @@ body {
   margin-top: 50px;
   text-align: center;
   h3 {
-    font-family: $playfair;
+    font-family: customTheme.$playfair;
     font-style: italic;
   }
   .row > div {
@@ -152,15 +196,29 @@ body {
   &.services-topper {
     background-image: url("./assets/services-topper.png");
   }
+  &.contactus-topper {
+    background-image: url("./assets/reviews-topper.png");
+  }
 }
 
 .reviews-companies-section {
-  background-color: $bg-lightbeige;
+  background-color: customTheme.$bg-lightbeige;
   padding-bottom: 50px;
 }
 .services-section {
-  background-color: $bg-darkbeige;
+  background-color: customTheme.$bg-darkbeige;
   padding-bottom: 50px;
+}
+
+.contactus-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-color: customTheme.$bg-lightbeige;
+  h3 {
+    font-family: customTheme.$literata;
+  }
 }
 
 .carousel-outer-container {
@@ -173,7 +231,7 @@ body {
   display: flex;
   justify-content: center;
   padding-top: 80px;
-  font-family: $lato;
+  font-family: customTheme.$lato;
   .card {
     border-radius: 50% 50% 0 0;
   }
@@ -198,20 +256,20 @@ body {
     text-align: justify;
   }
   &-name {
-    color: $teal;
+    color: customTheme.$teal;
     font-weight: 700;
     margin-bottom: 0;
     font-size: 1.7rem;
   }
   &-highlight {
-    color: $teal;
+    color: customTheme.$teal;
     font-style: italic;
     font-weight: 600;
     margin: 25px 0 10px;
     font-size: 1.1rem;
   }
   &-service {
-    color: $orange;
+    color: customTheme.$orange;
     font-style: italic;
     font-size: 1.1rem;
   }
@@ -279,23 +337,23 @@ body {
       padding: 0 !important;
     }
     .podcast-section {
-      background-color: $bg-lightbeige;
-      border-top: 8px solid $orange;
+      background-color: customTheme.$bg-lightbeige;
+      border-top: 8px solid customTheme.$orange;
       h3 {
-        color: $orange;
+        color: customTheme.$orange;
       }
       button {
-        background-color: $orange;
+        background-color: customTheme.$orange;
       }
     }
     .blog-section {
-      background-color: $bg-darkbeige;
-      border-top: 8px solid $green;
+      background-color: customTheme.$bg-darkbeige;
+      border-top: 8px solid customTheme.$green;
       h3 {
-        color: $green;
+        color: customTheme.$green;
       }
       button {
-        background-color: $green;
+        background-color: customTheme.$green;
       }
     }
   }
@@ -308,15 +366,15 @@ body {
     padding-top: 30px;
     h2,
     h5 {
-      font-family: $literata;
+      font-family: customTheme.$literata;
       padding: 5px 0;
     }
     button {
-      background-color: $green;
+      background-color: customTheme.$green;
     }
     .green-highlight {
       font-weight: bold;
-      color: $green;
+      color: customTheme.$green;
     }
   }
 
@@ -332,11 +390,94 @@ body {
       font-size: 1.1rem;
     }
     button {
-      background-color: $orange;
+      background-color: customTheme.$orange;
       margin-top: 20px;
     }
     h3 {
-      color: $orange;
+      color: customTheme.$orange;
     }
   }
 }
+
+//NEWSLETTER SECTION
+#newsletter {
+    padding: 3% 10%;
+    .flower-image {
+      position: absolute;
+      z-index: 1;
+      bottom: -30px;
+      right: 0;
+    }
+    .newsletter-text {
+      h1 {
+        font-size: 4rem;
+        text-align: center;
+        font-family: customTheme.$literata;
+      }
+      h5 {
+        font-family: customTheme.$lato;
+        font-weight: 300;
+      }
+      
+    }
+    .btn-tertiary {
+        padding: 12px 90px !important;  
+        line-height: 24px !important;  
+        margin-top: 34px;  
+    }
+}
+@media screen and (max-width:768px) {
+  #newsletter {
+    padding: 3% 5%;
+    .flower-image {
+      width: 100%;
+    }
+    .newsletter-text {
+      h1 {
+        font-size: 2rem;
+      }
+      h5 {
+        font-size: 1.08rem;
+      }
+    }
+    .btn-tertiary {
+        padding: 12px 50px !important;  
+        line-height: 24px !important;  
+        margin-top: 34px;  
+    }
+  }
+}
+
+#footer {
+    padding: 50px 10% 3%;
+    color: customTheme.$white;
+    font-family: customTheme.$lato;
+    a {
+      color: customTheme.$white;
+      border-bottom: 3px solid transparent;
+      text-decoration: none;
+      &:hover,
+      &:focus {
+        outline: none;
+        color: customTheme.$orange;
+      }
+    }
+    .common-footer-social {
+        border-radius: 50%;
+        width: 70px;
+        height: 70px;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        text-decoration: none;
+        border: none;
+        &:hover {
+            text-decoration: none;
+            border: none;
+        }
+        svg {
+            width: 40px;
+            height: 40px;
+        }
+    }
+  }

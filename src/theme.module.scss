@@ -1,0 +1,44 @@
+// COLORS
+$lightGreen: #B5D7CD;
+$green: #2f7661;
+$teal: #003a47;
+$pink: #eaa7a6;
+$orange: #ec5929;
+$beige: #f2ebe3;
+$yellow: #e9a130;
+$black: #222222;
+$bg-lightbeige: #f9f7f5;
+$bg-darkbeige: #f2ebe3;
+$error:  #CC3333;
+$transparent: transparent;
+$white: white;
+
+// FONTS
+$afacad: "Afacad", sans-serif;
+$poppins: "Poppins", sans-serif;
+$literata: "Literata", serif;
+$playfair: "Playfair Display", serif;
+$handwriting: "Oooh Baby", cursive;
+$lato: "Lato", sans-serif;
+
+//CUSTOM VARIABLES
+$borderRadius: 10px;
+$checkboxBorderRadius: 5px;
+
+//Exporting the SASS variable for use in JSX files
+:export {
+  lightGreen: $lightGreen;
+  green: $green;
+  teal: $teal;
+  pink: $pink;
+  orange: $orange;
+  beige: $beige;
+  yellow: $yellow;
+  black: $black;
+  bgLightBeige: $bg-lightbeige;
+  bgDarkBeige: $bg-darkbeige;
+  error: $error;
+  transparent: $transparent;
+  white: $white;
+  borderRadius: $borderRadius;
+}
