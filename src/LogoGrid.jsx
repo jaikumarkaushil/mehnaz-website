@@ -1,6 +1,11 @@
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import LogoGN from "./assets/logo-gn.png";
+import LogoMem from "./assets/logo-mem.png";
+import LogoSw from "./assets/logo-sw.png";
+import LogoTg from "./assets/logo-tg.png";
+import LogoVocm from "./assets/logo-vocm.png";
 import LogoCBC from "./assets/logo-cbc.png";
 import LogoCR from "./assets/logo-cr.png";
 import LogoGGF from "./assets/logo-ggf.png";
@@ -17,6 +22,11 @@ const LogoGrid = ({ type }) => {
         { name: "Global Government Forum", logo: LogoGGF },
         { name: "Humble Beginnings Stories", logo: LogoHBS },
         { name: "University of British Columbia", logo: LogoUBC },
+        { name: "VOCM", logo: LogoVocm },
+        { name: "Telegram", logo: LogoTg },
+        { name: "Memorial University", logo: LogoMem },
+        { name: "Global News", logo: LogoGN },
+        { name: "Saltwire", logo: LogoSw },
       ],
     },
 
@@ -42,7 +52,7 @@ const LogoGrid = ({ type }) => {
 
       <Row>
         {selectedData.logos.map((item, index) => (
-          <Col sm={6} lg={4} key={index}>
+          <Col xs={6} md={4} lg={3} key={index}>
             <div className="grid-item">
               <img src={item.logo} alt={item.name} />
             </div>

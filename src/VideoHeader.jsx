@@ -14,8 +14,8 @@ const VideoHeader = () => {
         />
         <div className="video-header-overlay"></div>
         <div className="video-header-content">
-          <h3>Unlock your potential with</h3>
-          <h1>Mehnaz Tabassum</h1>
+          <h3>Stop Choosing, Start Doing.</h3>
+          <h1>Live Your Multi-Passionate&nbsp;Life.</h1>
         </div>
       </div>
     </>

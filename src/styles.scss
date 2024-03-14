@@ -117,13 +117,13 @@ body {
     text-align: center;
     padding-bottom: 30px;
     h3 {
-      font-size: clamp(1.8rem, 0.5769rem + 2.5641vw, 2.3rem);
+      font-size: clamp(1.625rem, 1.3942rem + 0.9231vw, 3.125rem);
       font-family: customTheme.$poppins;
       font-weight: 200;
     }
 
     h1 {
-      font-size: clamp(3rem, -0.2308rem + 8.9744vw, 6.5rem);
+      font-size: clamp(3.125rem, 2.7404rem + 1.5385vw, 5.625rem);
       text-align: center;
       font-family: customTheme.$playfair;
       font-weight: 800;
