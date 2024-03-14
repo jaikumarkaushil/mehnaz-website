@@ -283,6 +283,7 @@ body {
 .arrow {
   position: absolute;
   top: 50%;
+  margin-top: -35px;
   z-index: 1;
   border: 0;
   background: transparent;
@@ -303,6 +304,17 @@ body {
 
 .custom-button-group {
   position: absolute;
+}
+
+// LOGO CAROUSEL
+.logo-container {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  padding: 20px;
+  img {
+    max-width: 100%;
+  }
 }
 
 // MEDIA SECTION
@@ -401,32 +413,31 @@ body {
 
 //NEWSLETTER SECTION
 #newsletter {
-    padding: 3% 10%;
-    .flower-image {
-      position: absolute;
-      z-index: 1;
-      bottom: -30px;
-      right: 0;
+  padding: 3% 10%;
+  .flower-image {
+    position: absolute;
+    z-index: 1;
+    bottom: -30px;
+    right: 0;
+  }
+  .newsletter-text {
+    h1 {
+      font-size: 4rem;
+      text-align: center;
+      font-family: customTheme.$literata;
     }
-    .newsletter-text {
-      h1 {
-        font-size: 4rem;
-        text-align: center;
-        font-family: customTheme.$literata;
-      }
-      h5 {
-        font-family: customTheme.$lato;
-        font-weight: 300;
-      }
-      
+    h5 {
+      font-family: customTheme.$lato;
+      font-weight: 300;
     }
-    .btn-tertiary {
-        padding: 12px 90px !important;  
-        line-height: 24px !important;  
-        margin-top: 34px;  
-    }
+  }
+  .btn-tertiary {
+    padding: 12px 90px !important;
+    line-height: 24px !important;
+    margin-top: 34px;
+  }
 }
-@media screen and (max-width:768px) {
+@media screen and (max-width: 768px) {
   #newsletter {
     padding: 3% 5%;
     .flower-image {
@@ -441,43 +452,43 @@ body {
       }
     }
     .btn-tertiary {
-        padding: 12px 50px !important;  
-        line-height: 24px !important;  
-        margin-top: 34px;  
+      padding: 12px 50px !important;
+      line-height: 24px !important;
+      margin-top: 34px;
     }
   }
 }
 
 #footer {
-    padding: 50px 10% 3%;
+  padding: 50px 10% 3%;
+  color: customTheme.$white;
+  font-family: customTheme.$lato;
+  a {
     color: customTheme.$white;
-    font-family: customTheme.$lato;
-    a {
-      color: customTheme.$white;
-      border-bottom: 3px solid transparent;
-      text-decoration: none;
-      &:hover,
-      &:focus {
-        outline: none;
-        color: customTheme.$orange;
-      }
-    }
-    .common-footer-social {
-        border-radius: 50%;
-        width: 70px;
-        height: 70px;
-        display: flex;
-        justify-content: start;
-        align-items: center;
-        text-decoration: none;
-        border: none;
-        &:hover {
-            text-decoration: none;
-            border: none;
-        }
-        svg {
-            width: 40px;
-            height: 40px;
-        }
+    border-bottom: 3px solid transparent;
+    text-decoration: none;
+    &:hover,
+    &:focus {
+      outline: none;
+      color: customTheme.$orange;
     }
   }
+  .common-footer-social {
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    text-decoration: none;
+    border: none;
+    &:hover {
+      text-decoration: none;
+      border: none;
+    }
+    svg {
+      width: 40px;
+      height: 40px;
+    }
+  }
+}

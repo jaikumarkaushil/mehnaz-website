@@ -8,6 +8,7 @@ import MediaSection from "./MediaSection";
 import ContactUs from "./ContactUs";
 import Footer from "./Footer";
 import Newsletter from "./Newsletter";
+import LogoCarousel from "./LogoCarousel";
 
 const App = () => {
   return (
@@ -34,7 +35,7 @@ const App = () => {
       ></Container>
       <Container fluid className="reviews-companies-section">
         <CardCarousel type="reviews" />
-        <LogoGrid type="companies" />
+        <LogoCarousel></LogoCarousel>
       </Container>
 
       <Container

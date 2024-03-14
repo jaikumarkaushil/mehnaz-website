@@ -21,7 +21,7 @@ const LogoGrid = ({ type }) => {
     },
 
     companies: {
-      title: "Companies I've partnered with",
+      title: "Companies I've collaborated with",
       logos: [
         { name: "CBC", logo: LogoCBC },
         { name: "Canvas Rebel", logo: LogoCR },
