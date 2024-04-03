@@ -1,16 +1,23 @@
 import React from "react";
+import Navigation from "./Navigation";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import ImgMehnaz from "./assets/mehnaz-profile.png";
+import ImgDM1 from "./assets/img-dm1.png";
+import Header from "./assets/marketing-header.png";
+import PageBottom from "./PageBottom";
 
-const About = () => {
+const DigitalMarketing = () => {
   return (
     <>
+      <Navigation />
+      <Container fluid className="marketing-header">
+        <img src={Header}></img>
+      </Container>
       <Container id="about" className="about">
         <Row>
-          <Col md={6}>
-            <h3>Get to know me.</h3>
+          <Col lg={6}>
+            <h3>Digital Marketing</h3>
             <h5>
               Mehnaz Tabassum is a dynamic multipotentialite
               who&nbsp;has&nbsp;made significant&nbsp;strides in business and
@@ -32,16 +39,15 @@ const About = () => {
               technology. Your voice, your vision, your impact. Let's amplify
               it.
             </p>
-
-            <h2 className="handwriting text-end">xx Mehnaz</h2>
           </Col>
-          <Col md={6} className="about-photo">
-            <img src={ImgMehnaz}></img>
+          <Col lg={6} className="ps-photo">
+            <img src={ImgDM1}></img>
           </Col>
         </Row>
       </Container>
+      <PageBottom />
     </>
   );
 };
 
-export default About;
+export default DigitalMarketing;

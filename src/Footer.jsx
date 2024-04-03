@@ -6,6 +6,7 @@ import {
   DesktopMdBreakpoint,
   MobileMdBreakpoint,
 } from "./components/WrapperClasses/Breakpoints.jsx";
+import Logo from "./assets/logo-white.png";
 
 function Footer() {
   const scrollWithOffset = (el, duration) => {

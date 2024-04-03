@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import { HashLink } from "react-router-hash-link";
+import { NavHashLink } from "react-router-hash-link";
+import Logo from "./assets/logo-white.png";
 
-// docs: https://react-bootstrap.netlify.app/docs/components/navbar
 const Navigation = () => {
   return (
     <>
@@ -15,31 +17,35 @@ const Navigation = () => {
         className="nav-top ml-auto"
       >
         <Container>
-          <Navbar.Brand href="#home">Mehnaz Tabassum</Navbar.Brand>
+          <Navbar.Brand as={Link} to="/">
+            <img src={Logo}></img>
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="ms-auto">
-              <Nav.Link href="#book">book</Nav.Link>
-              <Nav.Link href="#about">about</Nav.Link>
+              <NavHashLink
+                className="nav-link nav-hash-link nav-book-btn"
+                to="#contactus"
+              >
+                book
+              </NavHashLink>
+              <NavHashLink className="nav-link nav-hash-link" to="/#about">
+                about
+              </NavHashLink>
               <NavDropdown title="services" id="collapsible-nav-dropdown">
-                <NavDropdown.Item href="#services/3.1">
+                <NavDropdown.Item as={Link} to="/career-consulting">
                   career consulting
                 </NavDropdown.Item>
-                <NavDropdown.Item href="#services/3.2">
+                <NavDropdown.Item as={Link} to="/public-speaking">
                   public speaking
                 </NavDropdown.Item>
-                <NavDropdown.Item href="#services/3.3">
-                  digital content creation
+                <NavDropdown.Item as={Link} to="/digital-marketing">
+                  digital marketing
                 </NavDropdown.Item>
-                <NavDropdown.Item href="#services/3.4">
-                  project management
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#services/3.4">
+                <NavDropdown.Item as={Link} to="/decision-making">
                   decision making
                 </NavDropdown.Item>
               </NavDropdown>
-              <Nav.Link href="#resources">resources</Nav.Link>
-              <Nav.Link href="#contact">contact</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
