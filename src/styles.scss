@@ -22,6 +22,11 @@ body {
   font-family: customTheme.$handwriting;
 }
 
+// Custom Widths
+.w-90 {
+  width: 90%
+}
+
 // CUSTOM DESIGNS
 .btn-primary {
   color: customTheme.$white !important;
@@ -79,8 +84,23 @@ body {
   background-color: customTheme.$teal;
 }
 
+.text-primary {
+  color: customTheme.$green !important;
+}
+
 .text-secondary {
   color: customTheme.$orange !important;
+}
+
+::-moz-selection { /* Code for Firefox */
+  color: whitesmoke;
+  background: customTheme.$green;
+}
+
+
+::selection {
+  color: whitesmoke;
+  background: customTheme.$green;
 }
 
 // NAVBAR
