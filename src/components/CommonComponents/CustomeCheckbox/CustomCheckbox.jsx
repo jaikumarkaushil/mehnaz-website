@@ -7,14 +7,7 @@ import { useFormContext, get } from "react-hook-form";
 import "./customCheckbox.scss";
 
 const CheckBoxComponent = (props) => {
-  const {
-    onChange,
-    option,
-    checked,
-    inputId,
-    inputClassname,
-    customwidth,
-  } = props;
+  const { onChange, option, checked, inputId, inputClassname } = props;
 
   return (
     <Form.Check
@@ -23,7 +16,6 @@ const CheckBoxComponent = (props) => {
       label={option.label}
       checked={checked}
       className={classNames(inputClassname, "customCheckboxClass")}
-      style={{ width: `${customwidth}` }}
       onChange={(e) => onChange(option, e.target.checked)}
     />
   );
@@ -37,6 +29,8 @@ function CustomCheckbox(props) {
     inputClassname = "",
     required = false,
     name,
+    label,
+    labelStyles = "",
     id,
     options,
     onChange,
@@ -51,69 +45,80 @@ function CustomCheckbox(props) {
   const error = get(errors, `${name}`) ? true : false;
 
   return (
-    <div
+    <Form.Group
       style={{
         width: `${customelementwidth ? customelementwidth : "max-content"}`,
       }}
       className={classNames(wrapperClassname, "wrapperCheckboxClass")}
     >
-      <CustomController
-        control={control}
-        register={register}
-        name={name}
-        rules={{ required: required }}
-        onChange={onChange}
-        onBlur={onBlur}
-        render={({ onChange }) => (
-          <>
-            {options.map((option, index) => (
-              <CheckBoxComponent
-                key={index}
-                option={option}
-                inputId={`${id}-${index}`}
-                checked={option.checked}
-                inputClassname={inputClassname}
-                customwidth={customwidth}
-                onChange={(option, checked) => {
-                  onChange(
-                    options.map((item) =>
-                      item.value === option.value ? { ...item, checked } : item
-                    )
-                  );
-                }}
-              />
-            ))}
-          </>
-        )}
-      />
-      {error ? (
-        <ErrorMessage
-          errors={errors}
+      <div style={{ width: `${customwidth}` }}>
+        <Form.Label
+          id={label}
+          style={{ marginLeft: 0, marginBottom: "10px" }}
+          className={classNames(labelStyles, "helper-label-class")}
+        >
+          {label} &nbsp;
+        </Form.Label>
+        <CustomController
+          control={control}
+          register={register}
           name={name}
-          render={({ message }) => (
-            <Form.Text
-              style={{
-                marginLeft: "6px",
-                marginTop: "6px",
-                color: colors.error,
-              }}
-            >
-              {message}
-            </Form.Text>
+          rules={{ required: required }}
+          onChange={onChange}
+          onBlur={onBlur}
+          render={({ onChange }) => (
+            <>
+              {options.map((option, index) => (
+                <CheckBoxComponent
+                  key={index}
+                  option={option}
+                  inputId={`${id}-${index}`}
+                  checked={option.checked}
+                  inputClassname={inputClassname}
+                  customwidth={customwidth}
+                  onChange={(option, checked) => {
+                    onChange(
+                      options.map((item) =>
+                        item.value === option.value
+                          ? { ...item, checked }
+                          : item
+                      )
+                    );
+                  }}
+                />
+              ))}
+            </>
           )}
         />
-      ) : (
-        <Form.Text
-          style={{
-            marginLeft: "6px",
-            marginTop: "6px",
-            color: colors.transparent,
-          }}
-        >
-          Error Space
-        </Form.Text>
-      )}
-    </div>
+        {error ? (
+          <ErrorMessage
+            errors={errors}
+            name={name}
+            render={({ message }) => (
+              <Form.Text
+                style={{
+                  marginLeft: "6px",
+                  marginTop: "6px",
+                  color: colors.error,
+                }}
+              >
+                {message}
+              </Form.Text>
+            )}
+          />
+        ) : (
+          <Form.Text
+            style={{
+              marginLeft: "6px",
+              marginTop: "6px",
+              color: colors.transparent,
+            }}
+          >
+            Error Space
+          </Form.Text>
+        )}
+      </div>
+    </Form.Group>
   );
 }
 

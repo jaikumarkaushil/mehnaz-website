@@ -19,12 +19,13 @@ const OutlinedInputComponent = (props) => {
     inlineStyle,
     errors,
     placeholder,
+    rows,
   } = props;
   if (type === "textarea") {
     return (
       <Form.Control
         as="textarea"
-        rows={5}
+        rows={rows}
         name={name}
         onChange={(e) => onChange(e)}
         id={id}
@@ -69,6 +70,7 @@ function CustomTextField(props) {
     onBlur,
     placeholder = "",
     labelStyles,
+    rows = 5,
   } = props;
   let patternValue = "";
   let message = "";
@@ -145,6 +147,7 @@ function CustomTextField(props) {
                   inputClassname={inputClassname}
                   label={label}
                   placeholder={placeholder}
+                  rows={rows}
                 />
               );
             },
@@ -153,7 +156,7 @@ function CustomTextField(props) {
         {error ? (
           <ErrorMessage
             errors={errors}
-            name={props.name}
+            name={name}
             render={({ message }) => (
               <Form.Text
                 id={props.label}

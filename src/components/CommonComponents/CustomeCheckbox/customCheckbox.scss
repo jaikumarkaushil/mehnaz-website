@@ -1,5 +1,6 @@
 @use "../../../theme.module.scss" as customTheme;
 .customCheckboxClass {
+  margin-left: 1em;
   .form-check{
     &-input {
     width: 1.1em !important;
@@ -19,6 +20,7 @@
       vertical-align: -webkit-baseline-middle;
     }
   }
+
 }
 
 .wrapperCheckboxClass {
@@ -26,5 +28,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 0 20px;
+  // padding: 0 20px;
+
+  .helper-label-class {
+    font-weight: bold;
+    color: customTheme.$orange;
+    font-family: customTheme.$lato;
+  }
 }

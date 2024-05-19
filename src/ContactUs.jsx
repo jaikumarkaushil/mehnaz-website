@@ -1,29 +1,32 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import CustomTextField from "./components/CommonComponents/CustomTextField/CustomTextField";
-import CustomCheckbox from "./components/CommonComponents/CustomeCheckbox/CustomCheckbox";
+// import CustomCheckbox from "./components/CommonComponents/CustomeCheckbox/CustomCheckbox";
 import Options from "./shared/contactusOptions";
-import { Row, Col } from "react-bootstrap";
-import { Button } from "react-bootstrap";
+import { Row, Col, Button } from "react-bootstrap";
+import CustomDropdown from "./components/CommonComponents/CustomDropdown/CustomDropdown";
+import ContactUsServices from "./components/contactusServices";
+import CareerCounsellingCalendly from "./components/CareerCounsellingCalendly";
 
 const ContactUs = () => {
   const [options, setOptions] = React.useState(Options);
+  // const [interestType, setInterestType] = React.useState("");
   const methods = useForm();
-  const {
-    handleSubmit,
-    // watch,
-  } = methods;
+  const { handleSubmit, watch, resetField } = methods;
+  const interestType = watch("interests");
 
   // Function to handle checkbox change
-  const handleCheckboxChange = (updatedOptions) => {
-    setOptions(updatedOptions);
-  };
+  // const handleCheckboxChange = (updatedOptions) => {
+  //   setOptions(updatedOptions);
+  // };
+  useEffect(() => {
+    Options.filter((option) => option.value !== interestType).map((option) => {
+      resetField(option.value);
+    });
+  }, [interestType, resetField]);
 
   const onSubmit = (data) => {
-    const checkedInterests = options.filter((option) => option.checked);
-    // Add the checked interests to the form data
-    data.interests = checkedInterests;
-    console.log(data);
+    console.log("data: ", data);
   };
 
   return (
@@ -34,6 +37,7 @@ const ContactUs = () => {
           className="contactus-form w-100 w-md-75 mt-5"
           onSubmit={handleSubmit(onSubmit)}
         >
+          {console.log(watch())}
           <Row>
             <Col xs={12} md={6}>
               <CustomTextField
@@ -54,7 +58,7 @@ const ContactUs = () => {
                 customwidth="90%"
                 required={"Email is required"}
               />
-              <CustomCheckbox
+              {/* <CustomCheckbox
                 name="interests"
                 id="interests"
                 label="I AM INTERESTED IN..."
@@ -62,9 +66,31 @@ const ContactUs = () => {
                 customwidth="90%"
                 options={options}
                 onChange={handleCheckboxChange}
+              /> */}
+              <CustomDropdown
+                id="interests"
+                name="interests"
+                // value={interestType}
+                // onChange={(e) => setInterestType(e.target.value)}
+                shouldUseController={true}
+                label="I AM INTERESTED IN..."
+                customelementwidth="100%"
+                customwidth="90%"
+                required={true}
+              >
+                <option defaultValue="">Select your interest</option>
+                {options.map((option, index) => (
+                  <option key={index} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
+              </CustomDropdown>
+              <CareerCounsellingCalendly
+                careercounselling={interestType === options[0].value}
               />
             </Col>
             <Col xs={12} md={6}>
+              <ContactUsServices interestType={interestType} />
               <CustomTextField
                 id="message"
                 name="message"
@@ -73,13 +99,17 @@ const ContactUs = () => {
                 customelementwidth="100%"
                 customwidth="90%"
               />
-              <div className="d-flex justify-content-center justify-content-md-end mx-4 mb-5 mb-md-0">
+              <div className="d-flex justify-content-center justify-content-md-end mx-5 mb-5 mb-md-0">
                 <Button type="submit" variant="primary">
                   Submit
                 </Button>
               </div>
             </Col>
           </Row>
+          <CareerCounsellingCalendly
+            careercounselling={interestType === options[0].value}
+            type="inline"
+          />
         </form>
       </FormProvider>
     </section>
