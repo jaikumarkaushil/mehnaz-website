@@ -18,7 +18,7 @@ function CareerCounsellingCalendly({ careercounselling, type }) {
     ) : (
       <div className="text-center">
         <PopupButton
-          className="btn-primary w-90"
+          className="btn-primary w-75"
           rootElement={document.getElementById("contactus")}
           text="Schedule and pay for your career counselling session"
           LoadingSpinner={() => {

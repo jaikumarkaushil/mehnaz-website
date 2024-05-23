@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import CustomTextField from "./components/CommonComponents/CustomTextField/CustomTextField";
 // import CustomCheckbox from "./components/CommonComponents/CustomeCheckbox/CustomCheckbox";
@@ -9,8 +9,6 @@ import ContactUsServices from "./components/contactusServices";
 import CareerCounsellingCalendly from "./components/CareerCounsellingCalendly";
 
 const ContactUs = () => {
-  const [options, setOptions] = React.useState(Options);
-  // const [interestType, setInterestType] = React.useState("");
   const methods = useForm();
   const { handleSubmit, watch, resetField } = methods;
   const interestType = watch("interests");
@@ -30,14 +28,13 @@ const ContactUs = () => {
   };
 
   return (
-    <section id="contactus" className="w-100">
+    <section id="contactus" className="w-100 py-5">
       <FormProvider {...methods}>
         <h3 className="text-center">Get in touch</h3>
         <form
           className="contactus-form w-100 w-md-75 mt-5"
           onSubmit={handleSubmit(onSubmit)}
         >
-          {console.log(watch())}
           <Row>
             <Col xs={12} md={6}>
               <CustomTextField
@@ -79,14 +76,14 @@ const ContactUs = () => {
                 required={true}
               >
                 <option defaultValue="">Select your interest</option>
-                {options.map((option, index) => (
+                {Options.map((option, index) => (
                   <option key={index} value={option.value}>
                     {option.label}
                   </option>
                 ))}
               </CustomDropdown>
               <CareerCounsellingCalendly
-                careercounselling={interestType === options[0].value}
+                careercounselling={interestType === Options[0].value}
               />
             </Col>
             <Col xs={12} md={6}>
@@ -106,10 +103,10 @@ const ContactUs = () => {
               </div>
             </Col>
           </Row>
-          <CareerCounsellingCalendly
-            careercounselling={interestType === options[0].value}
+          {/* <CareerCounsellingCalendly
+            careercounselling={interestType === Options[0].value}
             type="inline"
-          />
+          /> */}
         </form>
       </FormProvider>
     </section>
