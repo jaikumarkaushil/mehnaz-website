@@ -5,7 +5,7 @@ import CustomTextField from "./components/CommonComponents/CustomTextField/Custo
 import Options from "./shared/contactusOptions";
 import { Row, Col, Button } from "react-bootstrap";
 import CustomDropdown from "./components/CommonComponents/CustomDropdown/CustomDropdown";
-import ContactUsServices from "./components/contactusServices";
+import ContactUsServices from "./components/ContactUsServices";
 import CareerCounsellingCalendly from "./components/CareerCounsellingCalendly";
 
 const ContactUs = () => {
